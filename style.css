@@ -1,0 +1,459 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Varela+Round&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a, a:link, a:visited{ /* 텍스트 데코레이션이 기본적으로 적용된 요소들 */
+  color:inherit; /* color는 부모 요소를 상속받을 수 있게 */
+  text-decoration: none; /* 텍스트 데코레이션 해제 */
+}
+
+li{
+  list-style: none; /* 기본으로 적용되는 list 스타일을 해제 */
+}
+
+.container{
+  width:1140px;
+  margin:0 auto; /* 줄어든 영역이 항상 웹 브라우저의 중앙에 올 수 있도록 */
+}
+
+/* header */
+header{
+  position:fixed;
+  z-index:1;
+  top:0; /* 페이지의 최상단에 붙을 수 있게 */
+  width:100%; /* 화면 너비를 100% 차지하도록 설정 -> header가 왼쪽과 오른쪽 끝까지 화면 너비를 차지함 */
+  padding:1rem; /* 내부 여백 1rem. rem은 상위 요소의 글꼴 크기를 기준으로 여백이 결정 됨. 이 코드는 header 내의 콘텐츠가 header의 가장자리에 너무 가까워지지 않도록 한 것. */
+}
+header .container{
+  display:flex; /* header.container를 플렉스 컨테이너로 설정 */
+  /* flex: 플렉스 아이템이 가로 방향으로 배치됨 */
+  /* justify-content: 주축을 기준으로 아이템 정렬 */
+  justify-content: space-between; /* <h1>, <nav> 양쪽 끝으로 떨어뜨려 놓기 */
+  /* space-betweem: 플렉스 아이템 사이의 간격이 균일하도록 설정 */
+  align-items: center; /* 교차축 방향을 중앙을 기준으로 정렬 */
+  width: 100%; /*.container의 너비를 전체 부모 요소의 너비로 설정 */
+}
+header button{ /* 버튼 기본 디자인 초기화 */
+  background-color: transparent; /* 요소의 배경색을 투명하게 설정 */
+  border: 0;
+  cursor: pointer; /* 마우스 커서를 해당 요소 위에 올렸을 때, 포인터 모양(손 모양) 으로 바뀌게 하는 속성. => 클릭할 수 있는 속성임을 알려줌 */
+  color:white;
+}
+header h1 button{
+  font-size: 2rem; /* <html> 태그의 폰트 크기를 기준으로 코기를 계산. (따로 설정 안했을 시, 16px = 1rem) */
+  font-weight:bold;
+}
+header nav ul{
+  display: flex; /*플렉스 아이템을 가로 방향으로 배치*/
+}
+header nav ul li{
+  padding:10px; /* padding에 하나의 값을 넣으면 상하좌우 모두 동일한 크기로 패딩이 적용됨.*/
+}
+header nav ul li button{
+  font-size: 1.2rem;
+}
+
+header.active{
+  background-color:rgba(0,0,0);
+  animation:fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn { /* 스르륵 나타나는 효과 */
+  0%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
+}
+/* main */
+main{
+  width: 100%; /* 요소의 너비를 화면의 100%로 설정 */
+  height: 100vh; /* main 요소의 높이를 화면의 뷰포트 높이로 설정. vh는 뷰포트 높이 1%를 의미하므로, 100vh는 전체 화면 높이와 같음 */
+  /* 너비는 부모 요소나 화면 크기에 비례해서, 높이는 화면 크기에 맞춰 고정하는 형태로 설정하는 게 더 직관적이고 적합해서 이렇게 사용 */
+  color:white;
+  background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url(images/me.jpg) center center; /* 배경 이미지를 화면 중앙에 맞추도록 함. center center: 이미지가 수평, 수직 중앙에 오도록 설정 */
+  /* linear-gradient: 색상이 일정한 배경으로 점차 변하는 효과를 만드는 함수 0.8은 투명도를 나타냄(0은 완전 투명, 1은 불투명) */
+  background-size: cover; /* 배경 이미지가 main 요소의 크기를 완전히 덮도록 설정. 이때 이미지 비율이 유지되면서 화면을 꽉 채우도록 크기가 조정됨 */
+
+  display:flex; /* 플렉스 컨테이너로 만듦. 플렉스 아이템은 가로 방향으로 배치됨 */
+  justify-content: center; /* 수평 정렬 */
+  align-items: center; /* 수직 정렬 */
+  text-align: center; /* 텍스트 정렬 */
+}
+main h4{
+  font-size:2rem;
+}
+main h2{
+  font-family: 'Varela Round', sans-serif;
+  font-size: 3.5rem; /* (3.5 * 15px) = 52.5px */
+  margin: 2rem 0; /* 요소의 상단과 하단에 2rem만큼의 여백을 주고, 좌우에는 주지 않겠다 */
+  letter-spacing: 3px; /* 자간 */
+}
+main p{
+  max-width: 500px;
+  margin: 0 auto;
+  font-size: 1.25rem;
+}
+main button.download{
+  background-color: transparent;
+  border: 3px solid white;
+  border-radius: 20px; /* 테두리의 둥글기 설정. 각 모서리가 20px만큼 동그래짐 */
+  padding: 1rem 2rem; /* 상하 / 좌우 여백 */
+  margin-top:3rem;
+  color: white;
+  font-weight: bold;
+  cursor: pointer; /* 마우스를 올렸을 때, 손 모양의 커서가 표시되도록 함. */
+}
+main button.mouse {
+  background-color: transparent;
+  border: none;
+  font-size: 2rem; /* 아이콘 크기를 키움 */
+  position: absolute; /* 항상 main 영역의 최하단에 위치해야 함. 수평 방향에선 중앙으로 */
+  bottom: 1rem;
+  left: 50%; /* 부모 요소의 가로 너비 중간에 요소를 위치 */
+  transform: translateX(-50%); /* 요소를 수평 방향으로 자신의 너비의 절반만큼 왼쪽으로 이동 */
+  /* left: 50%;로 설정한 상태에서는 요소의 왼쪽 경계가 수평 중앙에 위치함.
+     -> translateX(-50%)를 사용해 요소 자체의 가로 너비의 50%만큼 왼쪽으로 이동시켜,
+        요소의 중심이 부모 요소의 수평 중앙에 정확히 맞춰지도록 조정. */
+  color: white;
+  animation: upDown 1s ease-in-out infinite;
+  cursor:pointer;
+  /* 애니메이션이 한 번 실행되는 데 걸리는 시간: 1초
+  ease-in-out: 에니메이션 속도 조절(처음과 끝날 땐 느리고, 중반엔 속도가 빠름)
+  infinite: 에니메이션 무한 반복
+   */
+}
+main h2 span::after{ /* span의 가상요소에 대해 스타일을 설정, 커서 빤짝이 */
+  /* ::after: 선택한 내용이 바로 끝난 뒤에 추가적인 콘텐츠를 삽입할 때 사용됨(특징: content 필수) */
+  content: "";
+  height:40px;
+  width:3px;
+  background-color:white;
+  display:inline-block; /* 가상 요소를 inline-block 으로 설정 */
+  /* 이유: span 태그가 inline 성격을 가지고 있는 태그이기 때문에
+      inline 요소는 너비와 높이를 설정해도 적용되지 않음.
+      그래서 inline-block으로 바꿔야 height, width 속성이 적용됨
+   */
+  animation: blink .7s ease-in-out infinite;
+}
+
+@keyframes blink { /* 깜빡이는 에니메이션 */
+  0%{
+    opacity: 1; /* 불투명도 1(=요소가 완전히 보임) */
+  }
+  100%{
+    opacity: 0;
+  }
+}
+@keyframes upDown{ /* 위아래로 둥둥 에니메이션 */
+  0%{
+    bottom:1rem;
+  }
+  50%{
+    bottom:1.5rem;
+  }
+  100%{
+    bottom:1rem;
+  }
+}
+
+/* about_me*/
+section .about-self::after{ /* float 사용했기 때문에 자식 요소들은 개발자 모드에서 봤을 때 0으로 표시됨. 이를 해결하기 위한 코드 */
+  content:''; /* ::after는 기본적으로 내용을 삽입하기 때문에 content가 필수 요소 */
+  clear:both; /* clear: float된 요소들의 영향을 제거함. */
+  display:block; /* 가상요소인 ::after가 block 요소처럼 작동하게 함. (clear 속성은 block 요소에만 적용되기 때문에 <- 이유: 원래 clear 속성 자체가 block 요소가 float된 요소들의 영향을 피하게 하려고 만들어진 속성이라) */
+}
+
+section .about-self .left{ /* .left와 .right가 50%씩 나눠 가짐 */
+  /* float:left; 해당 요소를 왼쪽으로 배치하는 성질 => 여러 요소를 수평으로 나열할 때 ㅏㄴㅎ이 사용됨. (각 요소가 왼쪽으로 float 되면서 배치되기 때문) */
+  float:left;
+  width:50%;
+}
+section .about-self .left img{
+  width:100%; /* 이미지를 부모 요소의 너비에 맞게 100%로 설정함.(즉, 부모 요소의 크기에 맞춰 이미지를 자동으로 크기 조정함) */
+}
+section .about-self .right{ /* .left와 .right가 50%씩 나눠 가짐 */
+  width:50%;
+  float:left;
+  padding: 0 2rem; /* 상하 0, 좌우 2rem 패딩 */
+}
+section .about-self .right h3{
+  font-size: 2.25rem;
+  margin-bottom:1rem;
+}
+section .about-self .right h3 strong{
+  color:#ed4848;
+}
+section .about-self .right p{
+  font-size:1.15rem;
+  margin: 1rem 0; /* 상하 1rem 여백 */
+}
+section .about-self .right .social a{
+  font-size: 2.5rem;
+  margin-right: 0.2rem;
+}
+
+section{
+  font-family: 'Poppins', sans-serif;
+  padding:5rem 0;
+}
+section:nth-child(2n){
+  background-color: #f8f8f8; /* 짝수 번째 배경 색*/
+}
+
+section .title{
+  margin-bottom:3rem;
+}
+section .title h4{
+  font-size:1.35rem;
+  color:#ed4848;
+  position: relative;
+}
+section .title h2{
+  font-size: 3.5rem;
+}
+section .title p{
+  font-size: 1.15rem;
+}
+
+/* what i do*/
+section .do-me::after{ /*float 영향 제거*/
+  /* float 속성으로 인한 부모 요소의 높이 문제를 해결하는 clearfix 기법을 잘 적용 */
+  content:"";
+  display:block;
+  clear: both; /* 부모 요소가 자식 요소들의 float를 고려하도록 강제 */
+}
+section .do-me .do-inner{
+  width:30%; /* do_inner가 세 개니까 30*3 + 10(여백) = 100% */
+  padding: 2rem;
+  float: left; /* 각각의 아이템은 한 줄로 놓이니까 */
+  margin-right:5%;
+  cursor: pointer;
+  background-color:#fff;
+}
+section .do-me .do-inner:last-child{
+  margin-right: 0; /* 이유: 5*3 = 15%. 즉, 105니까 줄 바꿈 되는 것을 방지하기 위해, 맨 마지막 요소의 margin-right를 맞춰서 100으로 맞춤(그리고 애초에 마지막의 margin-right는 필요 없음 */
+}
+section .do-me .do-inner .icon i{
+  font-size: 2.5rem;
+  color:#ff6a6a;
+}
+section .do-me .do-inner .content h3{
+  font-size:2rem;
+  margin: 1rem 0;
+}
+section .do-me .do-inner .content []{
+  font-size:1.15rem;
+}
+section .do-me .do-inner:hover{
+  background-color:lightcoral;
+  color:white;
+}
+section .do-me .do-inner:hover .icon i{
+  color:white;
+}
+
+/* background */
+.bg{
+  background:url('images/background.jpg') center center; /* 배경 이미지의 위치를 가로와 세로 모두 중앙 정렬 */
+  background-size: cover; /* cover는 배경 이미지가 요소의 크기에 맞게 비율을 유지하면서 크기를 조정하도록 설정하는 값 */
+  background-attachment: fixed; /* fixed는 배경 이미지를 스크롤할 때 고정시켜서 페이지 스크롤을 해도 배경 이미지는 움직이지 않게 만듦. (스크롤에 영향 X) */
+  height:650px;
+}
+
+/* portfolio */
+section .portfolio-me::after{
+  content:"";
+  display:block;
+  clear:both;
+}
+section .portfolio-me .portfolio-inner{
+  width: 30%;
+  margin-right: 5%;
+  background-color:#fff;
+  float: left;
+  padding: 1rem 1rem 1.5rem 1rem; /* 위, 오른쪽, 아래, 왼*/
+  border: 1px solid #ccc;
+  margin-bottom:3rem;
+}
+section .portfolio-me .portfolio-inner:nth-child(3n){
+  margin-right: 0;
+}
+section .portfolio-me .portfolio-inner img{
+  width:100%; /* width: 100%;는 이미지가 부모 요소의 너비에 맞게 자동으로 크기가 조정되도록 함 => 이미지가 잘리거나 왜곡 X */
+  display:block; /* 이미지가 인라인 요소로 기본적으로 동작하기 때문에, 그 동작을 변경하고 블록 요소로 만들어 레이아웃을 더 잘 맞추기 위해서 */
+  /* float와 block 요소의 결합:float를 적용한 요소는 여전히 블록 수준 요소로 취급되지만, 블록 요소처럼 줄바꿈이 일어나지 않고, 흐름에서 제외되어 화면의 왼쪽이나 오른쪽으로 떠서 배치됨. 즉, float이 적용된 요소는 블록 레벨처럼 너비를 100% 차지할 수 있지만, 다른 요소들과 겹치지 않게 되며, 줄바꿈되지 않음. */
+}
+section .portfolio-me .portfolio-inner strong{
+  color:#fa6a6a;
+  margin: 0.5rem 0;
+  display: block; /* block으로 바꾼 이유: strong 태그는 블럭 성격이 아니라 마진이 적용 안돼서*/
+}
+section .portfolio-me .portfolio-inner h3{
+  font-size:1.75rem;
+}
+
+/* contact with me */
+section .contact-me::after{
+  content:'';
+  display:block;
+  clear:both;
+}
+section .contact-me .left{
+  width: 30%;
+  float:left;
+}
+section .contact-me .left .card{
+  border:1px solid #ccc;
+  padding:1rem;
+  display:flex;
+  align-items: center; /* 수직축을 기준으로 자식 요소 정렬 -> 자식 요소들을 중수직으로 중앙 정렬함*/
+  margin-bottom:1.25rem;
+}
+section .contact-me .left .card .icon i{
+  font-size: 2rem;
+  margin-right:15px;
+}
+section .contact-me .right{
+  width:65%;
+  float:left;
+  margin-left:5px;
+  border: 1px solid #ccc;
+  padding: 1rem;
+}
+section .contact-me .right .form-group{
+  margin-bottom: 1.25rem;
+}
+section .contact-me .right .form-group label{
+  display:block; /* 인라인 요소라 한 줄로 보여서, block 으로 만듦 */
+  margin-bottom: 0.85rem;
+}
+section .contact-me .right .form-group input{
+  width:100%; /* 가로 전체를 차지하도록 */
+  padding:0.625rem; /* 입력 필드 내의 텍스트와 테두리 사이의 여백 설정 */
+  outline: none; /*input 에 커서 올리면 테두리 찐해지는 거 제거 */
+  border: 1px solid #ccc;
+  border-radius: 10px;
+}
+section .contact-me .right .form-group input:focus, section .contact-me .right .form-group textarea:focus{
+  border: 1px solid #719ece;
+  box-shadow: 0 0 10px #719ece; /* 그림자 효과 추가
+   x, y, 번짐정도, 색상*/
+}
+section .contact-me .right .form-group textarea{
+  width:100%;
+  height: 300px;
+  outline: none;
+  resize:none; /* 마음대로 resize 못하게 (드래그 막음) */
+  border: 1px solid #ccc;
+  border-radius: 10px;
+}
+section .contact-me .right button{
+  width:100%;
+  padding:1rem;
+  background-color:#f78b00;
+  border:none;
+  color:white;
+}
+/* 미디어 쿼리(화면 크기에 따라 스타일 조정 */
+/* 1140px을 넘는 화면에서는 기본 설정이 그대로 유지되고, 그 아래로 내려가면 미디어 쿼리가 적용되어 디자인이 점차 변형 */
+/* 1140px 이하일 때 -> 참
+스크린의 너비가 1140px 이하일 때만 이 안의 스타일이 적용됨. */
+@media screen and (max-width: 1140px){ /* 1140px: 노트북, 작은 데스크탑 */
+  /* container 클래스에 1140px로 크기를 지정했으므로 기준 해상도를 1140px부터 시작 */
+  main .container{
+    width: 992px;
+  }
+  section .container{
+    width: 600px;
+  }
+  section .about-self .left{
+    width:100%;
+    margin-bottom: 1.5rem;
+  }
+  section .about-self .right{
+    width:100%;
+    padding: 0;
+  }
+  section .do-me .do-inner{
+    width:48%;
+    margin-bottom: 1.5rem;
+    margin-right: 0;
+  }
+  section .do-me .do-inner:nth-child(2n+1){ /* 홀수 번째만 */
+    margin-right: 4%;
+  }
+  section .portfolio-me .portfolio-inner{
+    width: 48%;
+    margin-right:0;
+  }
+  section .portfolio-me .portfolio-inner:nth-child(2n+1){
+    margin-right:4%;
+  }
+  section .contact-me .left{
+    width: 100%;
+  }
+  section .contact-me .right{
+    width: 100%;
+    margin-left: 0;
+  }
+}
+@media screen and (max-width: 992px){ /* 992px: 태블릿 가로 */
+  html{
+    font-size: 14px;
+  }
+  main .container {
+    width: 768px;
+  }
+  section .portfolio-me .portfolio-inner{
+    width:100%;
+  }
+}
+@media screen and (max-width: 768px) { /* 768px: 태블릿 세로 */
+  html{
+    font-size: 13px;
+  }
+  main .container {
+    width: 576px;
+  }
+  section .container{
+    width: 400px;
+  }
+  section .do-me .do-inner{
+    width: 100%;
+    margin-right: 0;
+  }
+}
+@media screen and (max-width: 576px){ /* 576px: 대부분 스마트폰 */
+  html{
+    font-size: 12px;
+  }
+  main .container {
+    width: 400px;
+  }
+  section .container{
+    width: 360px;
+  }
+}
+@media screen and (max-width: 400px){ /* 400px: 작은 스마트폰 */
+  html{
+    font-size: 11px;
+  }
+  main .container {
+    width: 320px;
+  }
+  section .container{
+    width: 320px;
+  }
+  /* 추가 조정 */
+  main h4{
+    font-size:1.5rem;
+  }
+  section .title h2{
+    font-size:3rem;
+  }
+}

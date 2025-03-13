@@ -1,0 +1,29 @@
+section .about-self .left{ /* .left와 .right가 50%씩 나눠 가짐 */
+    /* float:left; 해당 요소를 왼쪽으로 배치하는 성질 => 여러 요소를 수평으로 나열할 때 많이 사용됨. (각 요소가 왼쪽으로 float 되면서 배치되기 때문) */
+    float:left;
+    width:50%;
+}
+section .about-self .left img{
+    width:100%; /* 이미지를 부모 요소(.left)의 너비에 맞게 100%로 설정함.
+    (.left에 width: 50%이 설정되어 있음) */
+}
+section .about-self .right{ /* .left와 .right가 50%씩 나눠 가짐 */
+    width:50%;
+    float:left; /*  float: right가 아님! => 두 요소를 왼쪽부터 차례대로 나란히 배치하려면 float: left;를 두 개의 요소에 모두 적용함. */
+    padding: 0 2rem; /* 상하 0, 좌우 2rem 패딩 */
+}
+section .about-self .right h3{
+    font-size: 2.25rem;
+    margin-bottom:1rem;
+}
+section .about-self .right h3 strong{
+    color:#ed4848;
+}
+section .about-self .right p{
+    font-size:1.15rem;
+    margin: 1rem 0; /* 상하 1rem 여백 */
+}
+section .about-self .right .social a{
+    font-size: 2.5rem;
+    margin-right: 0.2rem;
+}

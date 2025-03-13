@@ -1,0 +1,29 @@
+section .portfolio-me::after{
+  content:"";
+  display:block;
+  clear:both;
+}
+section .portfolio-me .portfolio-inner{
+  width: 30%;
+  margin-right: 5%;
+  background-color:#fff;
+  float: left;
+  padding: 1rem 1rem 1.5rem 1rem; /* 위, 오른쪽, 아래, 왼*/
+  border: 1px solid #ccc;
+  margin-bottom:3rem;
+}
+section .portfolio-me .portfolio-inner:nth-child(3n){
+  margin-right: 0;
+}
+section .portfolio-me .portfolio-inner img{
+  width:100%; /* width: 100%;는 이미지가 부모 요소의 너비에 맞게 자동으로 크기가 조정되도록 함 => 이미지가 잘리거나 왜곡 X */
+  display:block; /* 이미지가 인라인 요소로 기본적으로 동작하기 때문에, 그 동작을 변경하고 블록 요소로 만들어 레이아웃을 더 잘 맞추기 위해서 */
+}
+section .portfolio-me .portfolio-inner strong{
+  color:#fa6a6a;
+  margin: 0.5rem 0;
+  display: block; /* block으로 바꾼 이유: strong 태그는 블럭 성격이 아니라 마진이 적용 안돼서*/
+}
+section .portfolio-me .portfolio-inner h3{
+  font-size:1.75rem;
+}

@@ -1,0 +1,41 @@
+section{
+  background-color: #f8f8f8;
+}
+section .do-me::after{ /*float 영향 제거*/
+  /* float 속성으로 인한 부모 요소의 높이 문제를 해결하는 clearfix 기법을 적용 */
+  content:"";
+  display:block;
+  clear: both; /* 부모 요소가 자식 요소들의 float를 고려하도록 강제 */
+  /* 💡 정리: 부모 요소인 .do-me가 자식 요소인 .do-inner에게 영향을 받아 clearfix를 적용한 것임 */
+}
+section .do-me .do-inner{
+  width:30%; /* do_inner가 세 개니까 30*3 + 10(여백) = 100% */
+  padding: 2rem;
+
+  /*  요소를 왼쪽 또는 오른쪽으로 띄워서 다른 요소들이 그 옆에 배치되게 하는 속성(인라인처럼 다른 요소들과 나란히 배치될 수 있다.) */
+  float: left; /* 각각의 아이템은 한 줄로 놓이니까 */
+  margin-right:5%;
+  cursor: pointer;
+  background-color:#fff;
+}
+section .do-me .do-inner:last-child{
+  margin-right: 0; /* 이유: 5*3 = 15%. 즉, 105니까 줄 바꿈 되는 것을 방지하기 위해, 맨 마지막 요소의 margin-right를 맞춰서 100으로 맞춤(그리고 애초에 마지막의 margin-right는 필요 없음 */
+}
+section .do-me .do-inner .icon i{
+  font-size: 2.5rem;
+  color:#ff6a6a;
+}
+section .do-me .do-inner .content h3{
+  font-size:2rem;
+  margin: 1rem 0;
+}
+section .do-me .do-inner .content []{
+  font-size:1.15rem;
+}
+section .do-me .do-inner:hover{
+  background-color:lightcoral;
+  color:white;
+}
+section .do-me .do-inner:hover .icon i{
+  color:white;
+}

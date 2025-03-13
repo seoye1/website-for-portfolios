@@ -1,0 +1,92 @@
+main{
+    width: 100%; /* 요소의 너비를 화면의 100%로 설정 */
+    height: 100vh; /* main 요소의 높이를 화면의 뷰포트 높이로 설정. vh는 뷰포트 높이 1%를 의미하므로, 100vh는 전체 화면 높이와 같음 */
+    /* 너비는 부모 요소나 화면 크기에 비례해서, 높이는 화면 크기에 맞춰 고정하는 형태로 설정하는 게 더 직관적이고 적합해서 이렇게 사용 */
+    color:white;
+    background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url(../images/me.jpg) center center; /* 배경 이미지를 화면 중앙에 맞추도록 함. center center: 이미지가 수평, 수직 중앙에 오도록 설정 */
+    /* linear-gradient: 색상이 일정한 배경으로 점차 변하는 효과를 만드는 함수 0.8은 투명도를 나타냄(0은 완전 투명, 1은 불투명) */
+    /* 결과: 이 코드를 적용하면 배경은 검정색 반투명 그라디언트가 배경 이미지 위에 덮이고, 그 이미지가 화면 중앙에 위치하게 됨. */
+
+    background-size: cover; /* 배경 이미지가 main 요소의 크기를 완전히 덮도록 설정. 이때 이미지 비율이 유지되면서 화면을 꽉 채우도록 크기가 조정됨 */
+
+    display:flex; /* 플렉스 컨테이너로 만듦. 플렉스 아이템은 가로 방향으로 배치됨 */
+    justify-content: center; /* 자식 요소들을 가로 중앙에 배치 */
+    align-items: center; /* 자식 요소들을 세로 중앙에 배치 */
+    text-align: center; /* 텍스트를 중앙에 배치 정렬 */
+}
+main h4{
+    font-size:2rem;
+}
+main h2{
+    font-family: 'Varela Round', sans-serif;
+    font-size: 3.5rem; /* (3.5 * 15px) = 52.5px */
+    margin: 2rem 0; /* 요소의 상단과 하단에 2rem만큼의 여백을 주고, 좌우에는 주지 않겠다 */
+    letter-spacing: 3px; /* 자간 */
+}
+main p{
+    max-width: 500px; /* 해당 요소의 최대 너비를 500px 로 설정함. 화면이 크면 요소가 500px로 고정되고, 작은 화면에서는 비율에 맞춰 자동으로 줄어들게 됨. */
+    margin: 0 auto; /* 요소의 상하 여백을 0으로, 좌우 여백을 자동으로 설정. 가로 중앙 정렬 */
+    font-size: 1.25rem;
+}
+main button.download{
+    background-color: transparent;
+    border: 3px solid white;
+    border-radius: 20px; /* 테두리의 둥글기 설정. 각 모서리가 20px만큼 동그래짐 */
+    padding: 1rem 2rem; /* 상하 / 좌우 여백 */
+    margin-top:3rem;
+    color: white;
+    font-weight: bold;
+    cursor: pointer; /* 마우스를 올렸을 때, 손 모양의 커서가 표시되도록 함. */
+}
+main button.mouse {
+    background-color: transparent;
+    border: none;
+    font-size: 2rem; /* 아이콘 크기를 키움 */
+    position: absolute; /* 항상 main 영역의 최하단에 위치해야 함. 수평 방향에선 중앙으로 */
+    bottom: 1rem;
+    left: 50%; /* 부모 요소의 가로 너비 중간에 요소를 위치 */
+    transform: translateX(-50%); /* 요소를 수평 방향으로 자신의 너비의 절반만큼 왼쪽으로 이동 */
+    /* left: 50%;로 설정한 상태에서는 요소의 왼쪽 경계가 수평 중앙에 위치함.
+       -> translateX(-50%)를 사용해 요소 자체의 가로 너비의 50%만큼 왼쪽으로 이동시켜,
+          요소의 중심이 부모 요소의 수평 중앙에 정확히 맞춰지도록 조정. */
+    color: white;
+    animation: upDown 1s ease-in-out infinite;
+    cursor:pointer;
+    /* 애니메이션이 한 번 실행되는 데 걸리는 시간: 1초
+    ease-in-out: 에니메이션 속도 조절(처음과 끝날 땐 느리고, 중반엔 속도가 빠름)
+    infinite: 에니메이션 무한 반복
+     */
+}
+main h2 span::after{ /* span의 가상요소에 대해 스타일을 설정, 커서 빤짝이 */
+    /* ::after: 선택한 내용이 바로 끝난 뒤에 추가적인 콘텐츠를 삽입할 때 사용됨(특징: content 필수) */
+    content: "";
+    height:40px;
+    width:3px;
+    background-color:white;
+    display:inline-block; /* 가상 요소를 inline-block 으로 설정 */
+    /* 이유: span 태그가 inline 성격을 가지고 있는 태그이기 때문에
+        inline 요소는 너비와 높이를 설정해도 적용되지 않음.
+        그래서 inline-block으로 바꿔야 height, width 속성이 적용됨
+     */
+    animation: blink .7s ease-in-out infinite;
+}
+
+@keyframes blink { /* 깜빡이는 에니메이션 */
+    0%{
+        opacity: 1; /* 불투명도 1(=요소가 완전히 보임) */
+    }
+    100%{
+        opacity: 0;
+    }
+}
+@keyframes upDown{ /* 위아래로 둥둥 에니메이션 */
+    0%{
+        bottom:1rem;
+    }
+    50%{
+        bottom:1.5rem;
+    }
+    100%{
+        bottom:1rem;
+    }
+}

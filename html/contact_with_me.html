@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zxx"> <!-- zxx : 주력 언어 정확히 특정되지 X -->
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact With Me</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" /> <!--폰트어썸-->
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="../css/contact_with_me.css">
+</head>
+
+<body>
+<section id="contact">
+  <div class="container">
+    <div class="title">
+      <h4>Contact</h4>
+      <h2>Contact With Me</h2>
+    </div>
+    <div class="contact-me">
+      <div class="left">
+        <div class="card">
+          <div class="icon">
+            <i class="fa-solid fa-phone-volume"></i>
+          </div>
+          <div class="info-text">
+            <h3>phone</h3>
+            <p>010-1234-1234</p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="icon">
+            <i class="fa-solid fa-envelope"></i>
+          </div>
+          <div class="info-text">
+            <h3>email</h3>
+            <p>yeeseoy@gmail.com</p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="icon">
+            <i class="fa-solid fa-map-location-dot"></i>
+          </div>
+          <div class="info-text">
+            <h3>address</h3>
+            <p>Samseong-ro, Gangnam-gu, Seoul, Republic of Korea</p>
+          </div>
+        </div>
+      </div>
+      <div class="right">
+        <form action="#">
+          <div class="form-group">
+            <label for="name">name</label>
+            <input type="text" id="name">
+          </div>
+          <div class="form-group">
+            <label for="email">email</label>
+            <input type="text" id="email" autocomplete="off"> <!-- autocomplete="off" -> 이전에 입력했던 기록 안 뜨게 -->
+          </div>
+          <div class="form-group">
+            <label for="msg">message</label>
+            <textarea id="msg"></textarea>
+          </div>
+          <button>send</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+</body>
+</html>

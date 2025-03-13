@@ -1,0 +1,33 @@
+header{
+    position:absolute; /* 부모 요소(여기선 <body>)를 기준으로 절대적인 위치를 설정. 해당 요소는 부모 요소를 기준으로 배치됨.*/
+    top:0; /* 페이지의 최상단에 붙게 됨.부모 요소(여기선 <body>의 최상단에서 0px만큼 떨어진 위치에 배치 됨.*/
+    width:100%; /* 화면 너비를 100% 차지하도록 설정 -> header가 왼쪽과 오른쪽 끝까지 화면 너비를 차지함 */
+    padding:1rem; /* 내부 여백 1rem. rem은 상위 요소의 글꼴 크기를 기준으로 여백이 결정 됨. 이 코드는 header 내의 콘텐츠가 header의 가장자리에 너무 가까워지지 않도록 한 것. */
+}
+header .container{
+    display:flex; /* header.container를 플렉스 컨테이너로 설정 */
+    /* flex: 플렉스 아이템이 가로 방향(기본값)으로 배치됨 */
+    /* justify-content: 주축(여기선 가로)을 기준으로 아이템 정렬 */
+    justify-content: space-between; /* <h1>, <nav> 양쪽 끝으로 떨어뜨려 놓기 */
+    /* space-betweem: 플렉스 아이템 사이의 간격이 균일하도록 설정 */
+    align-items: center; /* 교차축(여기선 세로) 방향을 중앙을 기준으로 정렬 */
+    width: 100%; /*.container의 너비를 전체 부모 요소의 너비로 설정 */
+}
+header button{ /* 버튼 기본 디자인 초기화 */
+    background-color: transparent; /* 요소의 배경색을 투명하게 설정 */
+    border: 0;
+    cursor: pointer; /* 마우스 커서를 해당 요소 위에 올렸을 때, 포인터 모양(손 모양) 으로 바뀌게 하는 속성. => 클릭할 수 있는 속성임을 알려줌 */
+}
+header h1 button{
+    font-size: 2rem; /* <html> 태그의 폰트 크기를 기준으로 코기를 계산. (따로 설정 안했을 시, 16px = 1rem) */
+    font-weight:bold;
+}
+header nav ul{
+    display: flex; /*플렉스 아이템을 가로 방향으로 배치*/
+}
+header nav ul li{
+    padding:10px; /* padding에 하나의 값을 넣으면 상하좌우 모두 동일한 크기로 패딩이 적용됨.*/
+}
+header nav ul li button{
+    font-size: 1.2rem;
+}
