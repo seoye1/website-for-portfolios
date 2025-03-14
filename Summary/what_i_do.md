@@ -4,7 +4,9 @@
 : float 속성으로 인해 겹치는 요소들을 정리하는 속성
 
 clear: both: 왼쪽과 오른쪽의 float 요소들을 모두 정리하고, 그 아래로 내려오게 함.
+
 clear: left: 왼쪽에 float된 요소를 정리하고, 오른쪽에 있는 요소는 영향을 받지 않음.
+
 :clear: right: 오른쪽에 float된 요소를 정리하고, 왼쪽은 영향을 받지 않음.
 
 ### ✅ clearfix 기법
